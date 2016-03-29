@@ -1,0 +1,67 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
+{% block title %}
+  {{ page_title | default('Puzzle') }}
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+
+  {# DataTables CSS #}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css">
+
+  {# Optional Boostrap theme #}
+  <link rel="stylesheet" href="https://bootswatch.com/simplex/bootstrap.min.css">
+
+  {# Fancy Bootstrap select boxes #}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+
+  {# Custom CSS #}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+  {# DataTables for Bootstrap #}
+  <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/colreorder/1.3.1/js/dataTables.colReorder.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script>
+
+  {# Fancy Boostrap select boxes #}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ url_for('public.index') }}">
+          {% block header_title %}Puzzle{% endblock %}
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ url_for('public.individuals') }}">Individuals</a></li>
+          {% block nav_left %}{% endblock %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    {% block container %}{% endblock %}
+  </div>
+{% endblock %}
