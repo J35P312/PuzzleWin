@@ -3,7 +3,7 @@
 Variant Caller GUI and genetic disease analysis tool.
 
 ```bash
-$ git clone https://github.com/robinandeer/puzzle.git
+$ https://github.com/J35P312/PuzzleWin.git
 $ cd puzzle
 $ pip install --editable .
 $ puzzle view tests/fixtures/
